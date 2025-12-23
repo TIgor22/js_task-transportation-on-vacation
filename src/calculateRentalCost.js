@@ -4,16 +4,18 @@
  * @return {number}
  */
 const dailyRate = 40;
-const discont3More = 20;
-const discont5More = 50;
+const discontFor3OrMoreDays = 20;
+const discontFor7OrMoreDays = 50;
+const bigDiscontDays = 7;
+const smallDiscontDays = 3;
 
 function calculateRentalCost(days) {
-  if (days >= 7) {
-    return days * dailyRate - discont5More;
+  if (days >= bigDiscontDays) {
+    return days * dailyRate - discontFor7OrMoreDays;
   }
 
-  if (days >= 3) {
-    return days * dailyRate - discont3More;
+  if (days >= smallDiscontDays) {
+    return days * dailyRate - discontFor3OrMoreDays;
   }
 
   return days * dailyRate;
